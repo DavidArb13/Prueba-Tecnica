@@ -7,10 +7,10 @@ import Vuelidate from 'vuelidate';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
-import cualquiera from './components/cualquiera';
 import Home from './components/Home';
 import Registro from './components/Registro';
-
+import Crearproducto from "./components/Crearproducto";
+import Products from "./components/Products";
 
 
 
@@ -35,15 +35,20 @@ const router = new VueRouter({
       component: Home
     },
     {
-      path: '/cualquiera',
-      name: 'cualquiera',
-      component: cualquiera
-    },
-    {
       path: '/Registro',
       name: 'Registro',
       component: Registro
-    }
+    },
+    {
+      path: '/Crearproducto',
+      name: 'Crearproducto',
+      component: Crearproducto
+    },
+    {
+      path: '/Products',
+      name: 'Products',
+      component: Products
+    },
   ]
 });
 

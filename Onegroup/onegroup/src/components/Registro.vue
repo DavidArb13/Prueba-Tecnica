@@ -12,7 +12,7 @@
                     </b-navbar-toggle>
                     <b-collapse id="navbar-toggle-collapse" is-nav>
                     <b-navbar-nav class="ml-auto">
-                        <b-nav-item href="/Registro">Registrarse</b-nav-item>
+        
                         <b-nav-item href="/">Iniciar Sesion</b-nav-item>
                         <b-nav-item href="#" disabled>Admins</b-nav-item>
                     </b-navbar-nav>
@@ -21,7 +21,7 @@
           </header>
           <main>
               <div class="width">
-                    <b-card bg-variant="dark" text-variant="white" title="Registro" class="p-3">
+                    <b-card bg-variant="dark" text-variant="white" title="Registro" class="p-3 shadow">
                        
                         <b-card-text>
                             <div class="pading">
@@ -98,7 +98,11 @@
                 if(this.$v.$invalid){
                     return false;
                 }
-                alert(this.contacto);
+                this.$http.post('http://localhost:3000/api/auth/signup', this.contacto)
+                .then(res => {
+                    localStorage.setItem('token', res.body.token);
+                    this.$router.push('/')
+                })
             }
         },
         validations: {

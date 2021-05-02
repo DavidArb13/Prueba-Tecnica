@@ -67,6 +67,7 @@ export default {
       console.log('dio un enter');
     },
   },
+  
   computed: {
     fullName(){
       return this.user.name + ' ' + this.user.lastname;

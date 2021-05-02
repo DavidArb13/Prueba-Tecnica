@@ -13,8 +13,7 @@
                     <b-collapse id="navbar-toggle-collapse" is-nav>
                     <b-navbar-nav class="ml-auto">
                         <b-nav-item href="/Registro">Registrarse</b-nav-item>
-                        <b-nav-item href="/">Iniciar Sesion</b-nav-item>
-                        <b-nav-item href="#" disabled>Admins</b-nav-item>
+                
                     </b-navbar-nav>
                     </b-collapse>
                 </b-navbar>
@@ -33,7 +32,7 @@
                                 >
                                     <b-form-input
                                     id="input-1"
-                                    v-model="form.email"
+                                    v-model="form.Email"
                                     type="email"
                                     placeholder="Enter email"
                                     required
@@ -44,7 +43,7 @@
                                     <b-form-input
                                     type="password"
                                     id="input-2"
-                                    v-model="form.password"
+                                    v-model="form.Password"
                                     placeholder="Enter password"
                                     required
                                     ></b-form-input>
@@ -69,13 +68,15 @@
   </div>
 </template>
 
+
 <script>
+
 export default {
     data() {
       return {
         form: {
-          email: '',
-          password: '',
+          Email: '',
+          Password: '',
         },
         show: true
       }
@@ -83,20 +84,25 @@ export default {
     methods: {
       onSubmit(event) {
         event.preventDefault()
-        alert(JSON.stringify(this.form))
+        this.$http.post('http://localhost:3000/api/auth/signin', this.form)
+        .then(res => {
+            localStorage.setItem('token', res.body.token);
+            this.$router.push('Products')
+        })
       },
+      
       onReset(event) {
         event.preventDefault()
         // Reset our form values
-        this.form.email = ''
-        this.form.password = ''
+        this.form.Email = ''
+        this.form.Password = ''
         // Trick to reset/clear native browser form validation state
         this.show = false
         this.$nextTick(() => {
           this.show = true
         })
       }
-    }
+    },
   }
 </script>
 
