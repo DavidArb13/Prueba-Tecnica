@@ -4,14 +4,7 @@ const companies = createAll();
 cleanConsole(4, companies);
 console.log('---- EXAMPLE 4 --- ', companies);
 
-const ejercicio4 = (companies) => {
-  const tabla = [];
-  companies = companies.map((company) => {
-    tabla.push(company.users);
-  });
-  console.log(tabla);
-};
-ejercicio4(companies);
+
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL
 

@@ -4,12 +4,7 @@ import ejercicio1 from './example-1';
 const companies = createAll();
 
 cleanConsole(3, companies);
-
-const ejercicio3 = (companies) => {
-  ejercicio1(companies);
-};
-ejercicio3(companies);
-
+ejercicio1(companies);
 console.log('---- EXAMPLE 3 --- ', companies);
 
 // -----------------------------------------------------------------------------
