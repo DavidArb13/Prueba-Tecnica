@@ -4,7 +4,26 @@ import ejercicio1 from './example-1';
 const companies = createAll();
 
 cleanConsole(3, companies);
-ejercicio1(companies);
+const ejercicio3 = (companies) => {
+  ejercicio1(companies);
+  let status = true;
+  companies.forEach((company) => {
+    company.users.forEach((user) => {
+      if ( user.firstName.charAt(0) !== user.firstName.charAt(0).toUpperCase() ) {
+        status = false;
+      }
+      if ( user.lastName.charAt(0) !== user.lastName.charAt(0).toUpperCase() ) {
+        status = false;
+      }
+    });
+    if ( company.name.charAt(0) !== company.name.charAt(0).toUpperCase() ) {
+      status = false;
+    }
+  });
+  return status;
+};
+console.log(ejercicio3(companies));
+
 console.log('---- EXAMPLE 3 --- ', companies);
 
 // -----------------------------------------------------------------------------

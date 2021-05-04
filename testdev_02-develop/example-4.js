@@ -2,9 +2,26 @@ import {cleanConsole, createAll} from './data';
 const companies = createAll();
 
 cleanConsole(4, companies);
+
+const ejercicio4 = (companies) => {
+  const tabla = [];
+  companies.forEach((company) => {
+    company.users.forEach((user) => {
+      // |...user| todo los valores de elemnto, luego setea un nuevo valor al elemento creado.
+      tabla.push({...user, company: company.name});
+    });
+  });
+  tabla.sort(( a, b ) => {
+    return (a.age > b.age)?-1:(a.age < b.age)?1:0;
+  });
+  return tabla;
+};
+
+console.log(ejercicio4(companies));
+
 console.log('---- EXAMPLE 4 --- ', companies);
 
-
+export default ejercicio4;
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL
 

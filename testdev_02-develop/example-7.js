@@ -1,10 +1,33 @@
 import {cleanConsole, createAll} from './data';
 
 const companies = createAll();
-
 cleanConsole(7, companies);
+
+const ejercicio7part1 = (id) => {
+  let name = '';
+  companies.forEach((company) => {
+    if (id === company.id) {
+      name = company.name;
+    }
+  });
+  return name;
+};
+
+const ejercicio7part2 = (id) => {
+  let c = 0;
+  companies.map((company) => {
+    if (id === company.id) {
+      companies.splice(c, 1);
+    }
+    c++;
+  });
+  return companies;
+};
+
 console.log('---- EXAMPLE 7 part 1 --- ', companies);
+console.log(ejercicio7part1(1));
 console.log('---- EXAMPLE 7 part 2 --- ', companies);
+console.log(ejercicio7part2(2));
 console.log('---- EXAMPLE 7 part 3 --- ', companies);
 console.log('---- EXAMPLE 7 part 4 --- ', companies);
 console.log('---- EXAMPLE 7 part 5 --- ', companies);

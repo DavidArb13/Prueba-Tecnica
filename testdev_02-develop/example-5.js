@@ -1,7 +1,28 @@
 import {cleanConsole, createAll} from './data';
+import ejercicio4 from './example-4';
 const companies = createAll();
 
 cleanConsole(5, companies);
+
+const ejercicio5 = (companies) => {
+  let sumaAge = 0;
+  const tabla = ejercicio4(companies);
+  tabla.forEach((item) => {
+    sumaAge = sumaAge + item.age;
+  });
+  const promedio = sumaAge/tabla.length;
+  let sumaAgaCar = 0;
+  let usersCar = 0;
+  tabla.forEach((item) => {
+    if (item.car == true) {
+      usersCar++;
+      sumaAgaCar = sumaAgaCar + item.age;
+    }
+  });
+  const promedioAgeCars = sumaAgaCar/usersCar;
+  return {size: tabla.length, average: promedio, hasCar: usersCar, averageWithCar: promedioAgeCars};
+};
+console.log(ejercicio5(companies));
 
 console.log('---- EXAMPLE 5 --- ', companies);
 // -----------------------------------------------------------------------------

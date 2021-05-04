@@ -3,8 +3,19 @@ import {cleanConsole, createAll} from './data';
 const companies = createAll();
 
 cleanConsole(6, companies);
-console.log('---- EXAMPLE 6 --- ', companies);
 
+const ejercicio6 = (companies) => {
+  const concate = {};
+  companies.forEach((company) => {
+    company.users.forEach((user) => {
+      concate[user.lastName + user.firstName +user.age] = user.car;
+    });
+  });
+  return concate;
+};
+console.log(ejercicio6(companies));
+
+console.log('---- EXAMPLE 6 --- ', companies);
 
 // -----------------------------------------------------------------------------
 // INSTRUCCIONES EN ESPAÑOL
@@ -22,10 +33,4 @@ console.log('---- EXAMPLE 6 --- ', companies);
 // the age of each user. Each attribute must have the value of boolean "car".
 // See example below
 
-const example = {
-  johnDoe32: true,
-  BernardoMinet45: false,
-  alinaChef23: true,
-};
 
-console.log(example);

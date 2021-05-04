@@ -20,9 +20,11 @@ const ejercicio1 = (companies) => {
     });
     company.name = company.name.charAt(0).toUpperCase() + company.name.slice(1);
     return company;
-  }).sort(( a, b ) => {
-    return (a.usersLength < b.usersLength)?-1:(a.usersLength > b.usersLength)?1:0;
   });
+  companies.sort((a, b) => {
+    return (a.usersLength > b.usersLength)?-1:(a.usersLength < b.usersLength)?1:0;
+  });
+  console.log(companies);
 };
 
 ejercicio1(companies);
